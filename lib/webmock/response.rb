@@ -108,7 +108,7 @@ module WebMock
     end
 
     def assert_valid_body!
-      valid_types = [Proc, IO, Pathname, String, Array]
+      valid_types = [Proc, IO, Pathname, String, Array, Hash]
       return if @body.nil?
       return if valid_types.any? { |c| @body.is_a?(c) }
       raise InvalidBody, "must be one of: #{valid_types}. '#{@body.class}' given"
